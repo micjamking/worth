@@ -1,18 +1,18 @@
 'use strict';
 
-angular.module('webappApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
+angular.module('worthApp', [
+	'ngCookies',
+	'ngResource',
+	'ngSanitize',
+	'ngRoute'
 ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+	.config(function ($routeProvider) {
+		$routeProvider
+			.when('/', {
+				templateUrl: 'views/main.html',
+				controller: 'MainCtrl'
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
+	});

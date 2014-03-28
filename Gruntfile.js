@@ -349,7 +349,22 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
-    }
+    },
+
+    buildcontrol: {
+	    options: {
+	      dir: 'dist',
+	      commit: true,
+	      push: true,
+	      message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+	    },
+	    pages: {
+	      options: {
+	        remote: 'git@github.com:micjamking/worth.git',
+	        branch: 'gh-pages'
+	      }
+	    }
+	  }
   });
 
 
@@ -402,5 +417,9 @@ module.exports = function (grunt) {
     'newer:jshint',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'buildcontrol'
   ]);
 };
