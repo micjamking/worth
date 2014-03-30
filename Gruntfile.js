@@ -312,7 +312,7 @@ module.exports = function (grunt) {
       iOS: {
         expand: true,
         cwd: '<%= yeoman.phonegap %>/www/images/res/',
-        dest: '<%= yeoman.phonegap %>/www/platforms/ios/Worth/Resources/',
+        dest: '<%= yeoman.phonegap %>/platforms/ios/Worth/Resources/',
         src: '{,*/}*.{png,jpg}'
       }
     },
