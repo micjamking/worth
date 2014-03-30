@@ -21,3 +21,4 @@ phonegap/*
 !phonegap/hooks
 !phonegap/merges
 !phonegap/config.xml
+!phonegap/www/config.xml
