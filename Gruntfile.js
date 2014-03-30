@@ -118,6 +118,7 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/*',
+            '<%= yeoman.phonegap %>/*',
             '!<%= yeoman.dist %>/.git*'
           ]
         }]
@@ -301,7 +302,7 @@ module.exports = function (grunt) {
       phonegap: {
         expand: true,
         cwd: '<%= yeoman.dist %>',
-        dest: '<%= yeoman.phonegap %>',
+        dest: '<%= yeoman.phonegap %>/www/',
         src: '**'
       }
     },
@@ -371,10 +372,10 @@ module.exports = function (grunt) {
 	  },
     shell: {
       phonegapBuild: {
-        command: 'cordova build'
+        command: 'cd phonegap && cordova build'
       },
       phonegapRun: {
-        command: 'cordova run ios --device'
+        command: 'cd phonegap && cordova run ios --device'
       }
     }
   });
