@@ -1,5 +1,23 @@
+# Ignore patterns for Worth mobile app
+
+# OSX files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Yeoman files
 node_modules
 dist
 .tmp
 .sass-cache
 app/bower_components
+
+# PhoneGap
+phonegap/*
+!phonegap/hooks
+!phonegap/merges
+!phonegap/config.xml
