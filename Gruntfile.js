@@ -186,6 +186,7 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '!<%= yeoman.dist %>/images/res/{,*/}*.png',
             '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
@@ -303,7 +304,16 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '<%= yeoman.dist %>',
         dest: '<%= yeoman.phonegap %>/www/',
-        src: '**'
+        src: [
+          '**',
+          '!apple-touch-*.png'
+        ]
+      },
+      iOS: {
+        expand: true,
+        cwd: '<%= yeoman.phonegap %>/www/images/res/',
+        dest: '<%= yeoman.phonegap %>/www/platforms/ios/Worth/Resources/',
+        src: '{,*/}*.{png,jpg}'
       }
     },
 
@@ -372,10 +382,16 @@ module.exports = function (grunt) {
 	  },
     shell: {
       phonegapBuild: {
-        command: 'cd phonegap && cordova build'
+        command: 'cd phonegap && cordova build',
+        options: {
+          stdout: true
+        }
       },
       phonegapRun: {
-        command: 'cd phonegap && cordova run ios --device'
+        command: 'cd phonegap && cordova run ios --device',
+        options: {
+          stdout: true
+        }
       }
     }
   });
