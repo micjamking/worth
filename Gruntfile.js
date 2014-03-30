@@ -423,6 +423,7 @@ module.exports = function (grunt) {
     'rev',
     'usemin',
     'htmlmin',
+    'copy:phonegap',
     'shell:phonegapBuild'
   ]);
 
