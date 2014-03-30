@@ -118,7 +118,7 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/*',
-            '<%= yeoman.phonegap %>/*',
+            '<%= yeoman.phonegap %>/www/*',
             '!<%= yeoman.dist %>/.git*'
           ]
         }]
