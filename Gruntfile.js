@@ -284,7 +284,7 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'bower_components/**/*',
-            'images/{,*/}*.{webp}',
+            'images/**/*.*',
             'fonts/*'
           ]
         }, {
@@ -366,6 +366,7 @@ module.exports = function (grunt) {
       }
     },
 
+    // Deploy production to github-pages
     buildcontrol: {
 	    options: {
 	      dir: 'dist',
@@ -380,6 +381,8 @@ module.exports = function (grunt) {
 	      }
 	    }
 	  },
+
+    // Run Cordova commands to build mobile app
     shell: {
       phonegapBuild: {
         command: 'cd phonegap && cordova build',
@@ -441,6 +444,7 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin',
     'copy:phonegap',
+    'copy:iOS',
     'shell:phonegapBuild'
   ]);
 
