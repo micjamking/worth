@@ -22,7 +22,8 @@ module.exports = function (grunt) {
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
-      dist: 'dist'
+      dist: 'dist',
+      phonegap: 'phonegap'
     },
 
     // Watches files for changes and runs tasks based on the changed files
@@ -146,9 +147,6 @@ module.exports = function (grunt) {
         ignorePath: '<%= yeoman.app %>/'
       }
     },
-
-
-
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -299,6 +297,12 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      phonegap: {
+        expand: true,
+        cwd: '<%= yeoman.dist %>',
+        dest: '<%= yeoman.phonegap %>',
+        src: '**'
       }
     },
 
@@ -364,7 +368,15 @@ module.exports = function (grunt) {
 	        branch: 'gh-pages'
 	      }
 	    }
-	  }
+	  },
+    shell: {
+      phonegapBuild: {
+        command: 'cordova build'
+      },
+      phonegapRun: {
+        command: 'cordova run ios --device'
+      }
+    }
   });
 
 
@@ -410,16 +422,22 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'shell:phonegapBuild'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'buildcontrol'
+  ]);
+
+  grunt.registerTask('run', [
+    'shell:phonegapRun'
   ]);
 
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
-  ]);
-
-  grunt.registerTask('deploy', [
-    'buildcontrol'
+    'build',
+    'deploy'
   ]);
 };
