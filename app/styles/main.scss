@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
@@ -32,8 +34,8 @@ body {
 		font-weight: 100;
 		text-align: center;
 		color: white;
-		animation: fadeInDown 0.75s ease-out;
-		background: linear-gradient(white 0%, white 50%, rgba(58, 58, 82, 0.15));
+		animation: fadeInDown 0.75s ease-out both 1s;
+		background: linear-gradient(white 0%, white 50%, rgba(58, 58, 82, 0.05));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
